@@ -1,0 +1,5 @@
+/target
+.direnv
+test_persistence
+*.svg
+perf.data

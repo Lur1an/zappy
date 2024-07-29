@@ -1,0 +1,8 @@
+[tasks.drill]
+command = "drill"
+cwd = "./drill"
+args = [
+    "--benchmark",
+    "benchmark.yml",
+    "--stats"
+]
