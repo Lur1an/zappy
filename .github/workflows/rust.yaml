@@ -18,6 +18,8 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
         with:
           components: rustfmt
+          toolchain: nightly
+
       - name: Enforce formatting
         run: cargo +nightly fmt --check
 
