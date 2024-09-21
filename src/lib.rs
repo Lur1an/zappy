@@ -1,15 +1,10 @@
-mod service;
-
-use std::convert::Infallible;
-use std::sync::atomic::AtomicU32;
-use std::time::Instant;
-
 use http_body_util::{BodyExt, Empty, Full};
 use hyper::body::Bytes;
 use hyper::server::conn::http1;
 use hyper::service::service_fn;
 use hyper::{Request, Response};
 use hyper_util::rt::TokioIo;
+use std::convert::Infallible;
 use tokio::net::TcpListener;
 
 async fn hello(req: Request<hyper::body::Incoming>) -> Result<Response<Empty<Bytes>>, Infallible> {
@@ -24,7 +19,7 @@ pub async fn launch() -> anyhow::Result<()> {
     let addr = std::net::SocketAddr::from(([127, 0, 0, 1], 3000));
     let listener = TcpListener::bind(&addr).await.unwrap();
     loop {
-        let (stream, addr) = listener.accept().await?;
+        let (stream, _) = listener.accept().await?;
         let io = TokioIo::new(stream);
 
         tokio::task::spawn(async move {
