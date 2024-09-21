@@ -13,11 +13,10 @@ futures = "0.3.30"
 http-body-util = "0.1.2"
 hyper = { version = "1.4.1", features = ["full", "server"] }
 hyper-util = { version = "0.1.6", features = ["full"] }
-rocksdb = { version = "0.22.0", features = ["multi-threaded-cf"] }
 tokio = { version = "1.38.1", features = ["full"] }
 tokio-stream = "0.1.15"
 tracing = "0.1.40"
-tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
+tracing-subscriber = { version = "0.3.18", features = ["env-filter", "json"] }
 rand = "0.8.5"
 
 [profile.release]
