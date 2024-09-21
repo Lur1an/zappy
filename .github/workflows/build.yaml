@@ -13,8 +13,8 @@ jobs:
     strategy:
       matrix:
         include:
-          # - target: aarch64-unknown-linux-gnu
-          #   platform: linux/arm64
+          - target: aarch64-unknown-linux-gnu
+            platform: linux/arm64
           - target: x86_64-unknown-linux-gnu
             platform: linux/amd64
     runs-on: ubuntu-latest
@@ -63,7 +63,7 @@ jobs:
           context: .
           platforms: ${{ matrix.platform }}
           build-args: |
-            BINARY_PATH=target/${{ matrix.target }}/release/zappy
+            BINARY_PATH=target/${{ matrix.target }}/release
           outputs: type=image,name=${{ env.REGISTRY_IMAGE }},push-by-digest=true,name-canonical=true,push=true
 
       - name: Export digest
